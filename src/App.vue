@@ -113,6 +113,9 @@
           @mouseover="mouseOverControll(false)"
           @mouseout="mouseOverControll(true)"
         />
+        <select v-model="mapSelected">
+          <option v-for="(map, index) in MAPS" :key="index" >{{map}}</option>
+        </select>
       </div>
     </vue-drag-resize>
   </div>
@@ -138,6 +141,8 @@ export default {
   },
   data() {
     return {
+      MAPS: ['world', 'belarus', 'denmark', 'estonia', 'finland', 'france', 'georgia', 'germany', 'greece', 'italy', 'netherlands', 'russia', 'spain', 'ukraine', 'united-kingdom', 'usa'],
+      mapSelected: 'world',
       draggableWidth: 0,
       draggableHeight: 49,
       draggableMinHeight: 49,
